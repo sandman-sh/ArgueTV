@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: ArgueTV API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: debate
+    description: Debate operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /debate:
+    post:
+      operationId: startDebate
+      tags: [debate]
+      summary: Start a debate
+      description: Generates a full 3-round debate on a topic using AI and real-time web data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartDebateBody"
+      responses:
+        "200":
+          description: Debate rounds generated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DebateResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /debate/audio:
+    post:
+      operationId: generateAudio
+      tags: [debate]
+      summary: Generate audio for a debate line
+      description: Synthesizes speech for a given text using ElevenLabs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GenerateAudioBody"
+      responses:
+        "200":
+          description: Audio generated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AudioResponse"
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    StartDebateBody:
+      type: object
+      properties:
+        topic:
+          type: string
+          description: The debate topic
+      required:
+        - topic
+
+    DebateRound:
+      type: object
+      properties:
+        round:
+          type: integer
+          description: Round number (1-3)
+        roundName:
+          type: string
+          description: Name of the round (Opening, Rebuttal, Final Statement)
+        agent1:
+          type: string
+          description: Pro anchor argument text
+        agent2:
+          type: string
+          description: Against anchor argument text
+      required:
+        - round
+        - roundName
+        - agent1
+        - agent2
+
+    DebateResponse:
+      type: object
+      properties:
+        topic:
+          type: string
+        rounds:
+          type: array
+          items:
+            $ref: "#/components/schemas/DebateRound"
+        sources:
+          type: array
+          items:
+            type: string
+      required:
+        - topic
+        - rounds
+        - sources
+
+    GenerateAudioBody:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Text to synthesize
+        voice:
+          type: string
+          description: Voice ID (agent1 or agent2)
+      required:
+        - text
+        - voice
+
+    AudioResponse:
+      type: object
+      properties:
+        audioBase64:
+          type: string
+          description: Base64-encoded audio data
+        mimeType:
+          type: string
+          description: MIME type of the audio
+      required:
+        - audioBase64
+        - mimeType
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error

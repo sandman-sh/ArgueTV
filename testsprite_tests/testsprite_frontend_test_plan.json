@@ -1,0 +1,1067 @@
+[
+  {
+    "id": "TC001",
+    "title": "Complete a custom topic debate session end-to-end to final verdict",
+    "description": "Verifies a guest user can start a debate from a custom topic, observe loading/research, see three rounds play out, and reach a final verdict panel.",
+    "category": "Start AI Debate",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a custom debate topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the start debate action"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate arena to load with generated content"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate to progress through all rounds until completion"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate shows two agents with generated debate content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a final verdict panel is displayed for the completed debate"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Auto-plays both agents sequentially and advances round progress",
+    "description": "Verifies that starting a debate plays agent 1 then automatically transitions to agent 2 and advances the round progress indicator through rounds without manual intervention.",
+    "category": "Audio Playback with Sync Captions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Solar power subsidies"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for audio playback to begin"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the UI to indicate the active speaker has switched from agent 1 to agent 2"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the round progress indicator advances to the next round after both agents finish speaking for the round"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Final verdict panel renders after debate completion",
+    "description": "Verifies that after the full debate ends the final verdict panel appears to present the post-debate analysis.",
+    "category": "Final Verdict Panel",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Social media regulation"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for all rounds to complete"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the final verdict panel is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Pause and resume keeps captions aligned with audio",
+    "description": "Verifies that pausing and resuming playback during an agent segment resumes both audio and captions without losing synchronization or restarting unexpectedly.",
+    "category": "Audio Playback with Sync Captions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Universal basic income"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for agent 1 audio playback to begin"
+      },
+      {
+        "type": "action",
+        "description": "Pause playback"
+      },
+      {
+        "type": "action",
+        "description": "Wait briefly"
+      },
+      {
+        "type": "action",
+        "description": "Resume playback"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify audio and captions both resume progressing from the paused point rather than restarting or desynchronizing"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Fact-check overlay appears after a round and can be dismissed",
+    "description": "Verifies that after a round completes a fact-check overlay appears with a verdict badge and explanation and the user can dismiss it via backdrop to continue the debate.",
+    "category": "Live Fact Check",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Nuclear energy safety"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the end of the first round"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the fact-check overlay to appear"
+      },
+      {
+        "type": "action",
+        "description": "Click the backdrop to dismiss the overlay"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the overlay is no longer visible and debate playback can continue"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Captions reveal word-by-word during playback",
+    "description": "Verifies that during active audio playback the live captions reveal progressively rather than appearing all at once.",
+    "category": "Audio Playback with Sync Captions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Remote work productivity"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for agent 1 audio playback to begin"
+      },
+      {
+        "type": "action",
+        "description": "Observe the captions area for a few moments during playback"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the captions update progressively over time while audio is playing"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Start a debate from a trending topic selection",
+    "description": "Verifies selecting a trending topic can auto-fill the topic and successfully start debate generation to show agent content.",
+    "category": "Start AI Debate",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click a trending topic chip to populate the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the start debate action"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate arena to load with generated content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the generated debate content is displayed in both agent areas"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate shows round progression indicators for the session"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Final verdict includes six claim cards with verdict badges and summary and tally",
+    "description": "Verifies that the final verdict panel contains six claim cards each with a verdict badge, along with a verdict summary and a per-speaker tally scorecard.",
+    "category": "Final Verdict Panel",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Public transit funding"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the final verdict panel to appear at debate completion"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify there are six claim cards displayed and each shows a verdict badge"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a verdict summary section and a per-speaker tally scorecard are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Start a debate from a news article selection",
+    "description": "Verifies choosing a news article can initiate debate generation and display the debate content in the arena.",
+    "category": "Start AI Debate",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the news feed section"
+      },
+      {
+        "type": "action",
+        "description": "Click the action to start a debate from a visible news card"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate arena to load with generated content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate arena displays generated content for two agents"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the topic field is populated from the selected article"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Trending topics load and are selectable",
+    "description": "Verifies the trending topic chips are displayed on Home and selecting one updates the topic input.",
+    "category": "Trending Topics",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the trending topics section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify multiple trending topic chips are displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click a trending topic chip"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the topic field is populated with the selected trending topic"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Pausing near speaker transition does not duplicate or overlap audio",
+    "description": "Verifies that pausing shortly before the agent switch and then resuming results in a single clean transition to the next speaker without overlapping playback.",
+    "category": "Audio Playback with Sync Captions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Electric vehicles emissions"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for agent 1 to be close to finishing their segment"
+      },
+      {
+        "type": "action",
+        "description": "Pause playback"
+      },
+      {
+        "type": "action",
+        "description": "Resume playback"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify there is only one active speaker at a time and the UI transitions cleanly to the next speaker without duplicated playback"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Filter news by country and see results update",
+    "description": "Verifies selecting a country filter updates the visible news cards to reflect the chosen country.",
+    "category": "Live News Feed",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the news feed section"
+      },
+      {
+        "type": "action",
+        "description": "Select a country from the country filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the news grid to refresh"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify news cards are displayed for the selected country filter"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Fact-check overlay shows verdict badge and explanation content",
+    "description": "Verifies that each fact-check overlay contains a visible verdict badge and an explanation text block for the checked claim.",
+    "category": "Live Fact Check",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Vaccine mandates"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the fact-check overlay to appear after a round completes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the overlay shows a verdict badge and an explanation text"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "Start a debate from a filtered news feed item",
+    "description": "Verifies after applying a country filter, the user can still start a debate from a visible news card and see debate content render.",
+    "category": "Live News Feed",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the news feed section"
+      },
+      {
+        "type": "action",
+        "description": "Select a country from the country filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the news grid to refresh"
+      },
+      {
+        "type": "action",
+        "description": "Click the action to start a debate from a visible news card"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate arena to load with generated content"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate arena displays generated content for two agents"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC015",
+    "title": "Download combined audio after completing a debate",
+    "description": "Verifies a guest can complete a debate and download a single combined MP3 for the full session.",
+    "category": "Download Debate Audio",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-empty topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate to complete"
+      },
+      {
+        "type": "action",
+        "description": "Initiate the audio download"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an MP3 file download starts"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC016",
+    "title": "Starting a new debate replaces the prior debate session",
+    "description": "Verifies the user can start a second debate after one has begun and the UI reflects the new session rather than mixing states.",
+    "category": "Start AI Debate",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a custom debate topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the start debate action"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate arena to load with generated content"
+      },
+      {
+        "type": "action",
+        "description": "Fill a different custom debate topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the start debate action"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate arena shows a single active debate session state (not duplicated)"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC017",
+    "title": "Fact-check overlay auto-dismisses and debate resumes",
+    "description": "Verifies that the fact-check overlay automatically dismisses after its announcement completes and the debate continues without user interaction.",
+    "category": "Live Fact Check",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: Carbon taxes"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the fact-check overlay to appear after a round completes"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the overlay to auto-dismiss"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the overlay disappears and debate playback proceeds to the next segment"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC018",
+    "title": "Ticker headlines render on initial load",
+    "description": "Verifies the live news ticker shows at least one headline on the home page.",
+    "category": "Live News Ticker",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the live news ticker to finish initial loading"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify at least one ticker headline is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC019",
+    "title": "Load more news cards to extend the feed",
+    "description": "Verifies pagination works by loading additional news cards into the grid when requested.",
+    "category": "Live News Feed",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the news feed section"
+      },
+      {
+        "type": "action",
+        "description": "Note the current set of visible news cards"
+      },
+      {
+        "type": "action",
+        "description": "Click the action to load more news"
+      },
+      {
+        "type": "action",
+        "description": "Wait for additional news cards to appear"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the news feed shows more items than before"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC020",
+    "title": "Waveform indicates active playback and stops when paused",
+    "description": "Verifies that the animated waveform reflects playback state by animating during audio and stopping when playback is paused.",
+    "category": "Audio Playback with Sync Captions",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a specific custom topic into the topic field: AI in education"
+      },
+      {
+        "type": "action",
+        "description": "Click to start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for audio playback to begin"
+      },
+      {
+        "type": "action",
+        "description": "Pause playback"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the waveform is animated during playback and is not animated while paused"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC021",
+    "title": "Start debate in a selected non-default language",
+    "description": "Verifies selecting a language before starting generation results in debate content presented in that language.",
+    "category": "Language Selection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select a non-default language from the language dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-empty topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Start the debate"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate content is displayed in the selected language"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC022",
+    "title": "Changing language affects the next generated debate",
+    "description": "Verifies switching the selected language and starting a new debate updates the language of the newly generated debate.",
+    "category": "Language Selection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select a non-default language from the language dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-empty topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate to complete"
+      },
+      {
+        "type": "action",
+        "description": "Select a different language from the language dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Start a new debate"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the new debate content is displayed in the newly selected language"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC023",
+    "title": "Trending topic selection persists in topic input until changed",
+    "description": "Verifies after selecting a trending chip, the user can edit the topic input and the edited value remains ready for starting a debate.",
+    "category": "Trending Topics",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the trending topics section"
+      },
+      {
+        "type": "action",
+        "description": "Click a trending topic chip"
+      },
+      {
+        "type": "action",
+        "description": "Fill additional text into the topic field to modify the selected topic"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the topic field contains the modified topic value"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC024",
+    "title": "Pause and open a ticker headline in a new tab",
+    "description": "Verifies a guest can pause the live ticker and open a headline in a new tab successfully.",
+    "category": "Live News Ticker",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the live news ticker headlines to appear at the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Hover over the ticker area"
+      },
+      {
+        "type": "action",
+        "description": "Click a ticker headline"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a new browser tab opens with an article page"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC025",
+    "title": "Ticker headline click is not blocked by hover-to-pause",
+    "description": "Verifies a user can hover to pause and still click a headline to open it successfully.",
+    "category": "Live News Ticker",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for ticker headlines to appear at the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Hover over the ticker area to pause it"
+      },
+      {
+        "type": "action",
+        "description": "Click a ticker headline while still hovering"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a new browser tab opens with an article page"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC026",
+    "title": "Download control is available only after debate completion",
+    "description": "Verifies the audio download option is not available until the debate has finished.",
+    "category": "Download Debate Audio",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-empty topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Start the debate"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the audio download option is not available while the debate is in progress"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate to complete"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the audio download option is available after completion"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC027",
+    "title": "Prevent starting a debate with an empty topic",
+    "description": "Verifies starting debate generation is blocked when the topic field is empty and a validation error is shown.",
+    "category": "Start AI Debate",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Clear the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the start debate action"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a topic validation error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify debate generation does not start and no debate content is shown"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC028",
+    "title": "Ticker resumes scrolling after hover ends",
+    "description": "Verifies the live news ticker pauses on hover and resumes motion when the pointer leaves.",
+    "category": "Live News Ticker",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for ticker headlines to appear at the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Hover over the ticker area"
+      },
+      {
+        "type": "action",
+        "description": "Move the pointer away from the ticker area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the ticker is moving again"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC029",
+    "title": "Language selection persists through in-page interactions before starting",
+    "description": "Verifies the selected language remains chosen while the user interacts with the page before starting debate generation.",
+    "category": "Language Selection",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select a non-default language from the language dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Scroll down the page and then back to the debate controls"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-empty topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Start the debate"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the debate content is displayed in the selected language"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC030",
+    "title": "Trending topics remain visible while interacting with other Home sections",
+    "description": "Verifies the trending chip area remains usable after scrolling through other sections on Home.",
+    "category": "Trending Topics",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the trending topics section"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the news feed section"
+      },
+      {
+        "type": "action",
+        "description": "Scroll back to the trending topics section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify trending topic chips are still displayed and interactive"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC031",
+    "title": "Ticker remains usable after interacting with the page",
+    "description": "Verifies the live news ticker remains visible and interactive after the user scrolls and returns to the bottom area.",
+    "category": "Live News Ticker",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for ticker headlines to appear at the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll down the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom area where the ticker is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the ticker is still displayed with headlines"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC032",
+    "title": "Download can be initiated repeatedly after completion",
+    "description": "Verifies a user can initiate the combined MP3 download more than once after the debate finishes.",
+    "category": "Download Debate Audio",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Fill a non-empty topic into the topic field"
+      },
+      {
+        "type": "action",
+        "description": "Start the debate"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the debate to complete"
+      },
+      {
+        "type": "action",
+        "description": "Initiate the audio download"
+      },
+      {
+        "type": "action",
+        "description": "Initiate the audio download again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an MP3 file download starts"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC033",
+    "title": "Handle empty news feed state gracefully",
+    "description": "Verifies that if the news feed section has no cards, an empty state is shown rather than a broken layout.",
+    "category": "Live News Feed",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the news feed section"
+      },
+      {
+        "type": "action",
+        "description": "Select a country from the country filter dropdown"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the news grid to refresh"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify either news cards are displayed or an empty state message is visible"
+      }
+    ],
+    "priority": "Low"
+  }
+]

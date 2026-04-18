@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./src/packages/db"
+    },
+    {
+      "path": "./src/packages/api-client-react"
+    },
+    {
+      "path": "./src/packages/api-zod"
+    },
+    {
+      "path": "./src/packages/integrations/openai-server"
+    },
+    {
+      "path": "./src/packages/integrations/openai-react"
+    }
+  ]
+}

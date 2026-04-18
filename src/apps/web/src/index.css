@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Inter', sans-serif;
+
+  --color-background: hsl(0, 0%, 0%);
+  --color-foreground: hsl(0, 0%, 100%);
+  --color-primary: hsl(0, 0%, 100%);
+  --color-primary-foreground: hsl(0, 0%, 0%);
+  --color-secondary: hsl(0, 0%, 10%);
+  --color-secondary-foreground: hsl(0, 0%, 100%);
+  --color-muted: hsl(0, 0%, 6%);
+  --color-muted-foreground: hsl(0, 0%, 63%);
+  --color-accent: hsl(0, 0%, 15%);
+  --color-accent-foreground: hsl(0, 0%, 100%);
+  --color-destructive: hsl(0, 84%, 60%);
+  --color-destructive-foreground: hsl(210, 40%, 98%);
+  --color-border: hsl(0, 0%, 12%);
+  --color-input: hsl(0, 0%, 12%);
+  --color-ring: hsl(0, 0%, 100%);
+  --color-card: hsl(0, 0%, 3%);
+  --color-card-foreground: hsl(0, 0%, 100%);
+
+  /* Agent Colors */
+  --color-agent1: hsl(250, 100%, 65%);
+  --color-agent2: hsl(30, 100%, 55%);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-white/20;
+    /* Ensure the whole app feels like a dark premium surface */
+    background-color: #000000;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glow-agent1 {
+    box-shadow: 0 0 60px -15px rgba(115, 60, 255, 0.15);
+    border-color: rgba(115, 60, 255, 0.3);
+  }
+  
+  .glow-agent2 {
+    box-shadow: 0 0 60px -15px rgba(255, 136, 0, 0.15);
+    border-color: rgba(255, 136, 0, 0.3);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255,255,255,0.3);
+  }
+}
+
+/* Progress bar shimmer */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
