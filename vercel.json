@@ -5,8 +5,11 @@
   "buildCommand": "corepack pnpm --filter @workspace/argue-tv build",
   "outputDirectory": "src/apps/web/dist/public",
   "functions": {
-    "api/[...route].ts": {
+    "api/index.ts": {
       "maxDuration": 300
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api" }
+  ]
 }
