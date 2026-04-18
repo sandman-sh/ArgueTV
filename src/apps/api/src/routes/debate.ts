@@ -8,12 +8,10 @@ const router: IRouter = Router();
 
 const connectors = new ReplitConnectors();
 const DEFAULT_OPENROUTER_MODEL =
-  process.env.OPENROUTER_MODEL?.trim() || "qwen/qwen3-next-80b-a3b-instruct:free";
+  process.env.OPENROUTER_MODEL?.trim() || "openai/gpt-4o-mini";
 const FALLBACK_OPENROUTER_MODELS = [
   DEFAULT_OPENROUTER_MODEL,
   "openrouter/free",
-  "meta-llama/llama-3.3-70b-instruct:free",
-  "google/gemma-4-26b-a4b-it:free",
 ].filter((value, index, array) => Boolean(value) && array.indexOf(value) === index);
 
 // ─── In-memory cache ──────────────────────────────────────────────────────────
